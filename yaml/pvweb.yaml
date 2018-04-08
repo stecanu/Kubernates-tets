@@ -1,0 +1,24 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: www 
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 100Mi 
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/tmp"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: www 
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Mi
